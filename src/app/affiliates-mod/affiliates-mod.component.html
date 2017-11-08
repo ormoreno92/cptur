@@ -1,0 +1,153 @@
+<div class="row header-inner-sections affiliate2-img">
+  <div class="title-inner-section">
+    <span>{{hotel.tradename}}</span>
+  </div>
+  <div class="row">
+    <div class="container hotel-info-upper">
+      <div class="row hotel-stars">
+        <img src="./assets/img/star.png" alt="">
+        <img src="./assets/img/star.png" alt="">
+        <img src="./assets/img/star.png" alt="">
+        <img src="./assets/img/star.png" alt="">
+        <img src="./assets/img/star.png" alt="">
+      </div>
+      <div class="row hotel-info-loguito">
+        <img src="{{hotel.logoUrl}}" alt="{{hotel.tradename}}">
+      </div>
+      <div class="row hotel-info-rnt">
+        <span>RNT: {{hotel.rnt}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row yellow-bar"></div>
+<div class="container-fluid">
+  <div class="row white-row">
+    <div class="container custom-portait-container">
+      <div class="col-md-3 lefty-siding lefty-side">
+        <div class="row-fluid">
+          <h5 class="title-inner">
+            CONTACTO
+          </h5>
+          <hr class="hr-inner">
+        </div>
+        <div class="row-fluid">
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <span>{{hotel.commercialAddress}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-earphone"></i>
+            <span>{{hotel.phone}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-phone"></i>
+            <span>{{hotel.cellPhone}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicons glyphicon-envelope"></i>
+            <span>{{hotel.emailReservation}}</span>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <a *ngIf="hotel?.webSite" (click)="goToExternalHotel(hotel.webSite)" href="javascript:void(0);" class="btn btn-primary center-block btn-80 bolder-btn"
+            ng-hide="!hotel.webSite">RESERVAR</a>
+        </div>
+      </div>
+      <div class="col-md-9 righty-siding" style="max-width: 859px;">
+        <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
+              <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+              <div (click)="openImage(image.image)" class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.image+ ')','width':'100%','height':'100%','margin-bottom':'-1px','max-width':'862px','max-height':'312px'}">
+              </div>
+              <div class="carousel-caption">
+                <h1>{{image.description}}</h1>
+              </div>
+              <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 lefty-siding righty-side">
+        <div class="row-fluid">
+          <h5 class="title-inner">
+            CONTACTO
+          </h5>
+          <hr class="hr-inner">
+        </div>
+        <div class="row-fluid">
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <span>{{hotel.commercialAddress}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-earphone"></i>
+            <span>{{hotel.phone}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicon glyphicon-phone"></i>
+            <span>{{hotel.cellPhone}}</span>
+          </div>
+          <div class="row contact-hotel">
+            <i class="glyphicons glyphicon-envelope"></i>
+            <span>{{hotel.emailAddress}}</span>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <a *ngIf="hotel?.webSite" (click)="goToExternalHotel(hotel.webSite)" href="javascript:void(0);" class="btn btn-primary center-block btn-80 bolder-btn"
+            ng-hide="!hotel.webSite">RESERVAR</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row gray-row services-list-hotel">
+    <img *ngFor="let service of services; let i=index" class="serviceImage" src="{{service.image}}" alt="">
+  </div>
+  <div class="row white-row">
+    <div class="container inner-content-hotel">
+      <div class="col-md-4" id="maps" (click)="openmap()">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+      <div class="col-md-8">
+        <p [innerHTML]="hotel.description"></p>
+      </div>
+    </div>
+  </div>
+  <div class="row gray-row gray-row2 services-list-hotel">
+    <img *ngFor="let brand of brandings; let i=index" class="serviceImage2" src="{{brand.image}}" alt="">
+  </div>
+</div>
+
+<button id="mapModal" type="button" style="display: none !important;" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myMapModal"></button>
+<div id="myMapModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header  blue-back">
+        <button type="button" id="closeLogin" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{hotel.tradename}}</h4>
+      </div>
+      <div class="modal-body">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="imageModal" type="button" style="display: none !important;" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myImgModal"></button>
+<div id="myImgModal" class="modal fade" role="dialog">
+  <div class="modal-dialog imageModal">
+    <div class="modal-content imageModalContent">
+      <div class="modal-header  blue-back imageModalHeader">
+        <button type="button" id="closeLogin" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body imageModalBody">
+        <img id="customPopImg" src="{{currentImage}}" alt="image">
+      </div>
+    </div>
+  </div>
+</div>

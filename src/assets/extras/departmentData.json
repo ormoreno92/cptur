@@ -1,0 +1,167 @@
+[
+    {
+        "code": "05",
+        "name": "Antioquia",
+        "map": "antioquia"
+    },
+    {
+        "code": "08",
+        "name": "Atlántico",
+        "map": "atlantico"
+    },
+    {
+        "code": "11",
+        "name": "Bogotá, D.C.",
+        "map": "bogota"
+    },
+    {
+        "code": "13",
+        "name": "Bolívar",
+        "map": "bolivar"
+    },
+    {
+        "code": "15",
+        "name": "Boyacá",
+        "map": "boyaca"
+    },
+    {
+        "code": "17",
+        "name": "Caldas",
+        "map": "caldas"
+    },
+    {
+        "code": "18",
+        "name": "Caquetá",
+        "map": "caqueta"
+    },
+    {
+        "code": "19",
+        "name": "Cauca",
+        "map": "cauca"
+    },
+    {
+        "code": "20",
+        "name": "Cesar",
+        "map": "cesa"
+    },
+    {
+        "code": "23",
+        "name": "Córdoba",
+        "map": "cordoba"
+    },
+    {
+        "code": "25",
+        "name": "Cundinamarca",
+        "map": "cundinamarca"
+    },
+    {
+        "code": "27",
+        "name": "Chocó",
+        "map": "choco"
+    },
+    {
+        "code": "41",
+        "name": "Huila",
+        "map": "huila"
+    },
+    {
+        "code": "44",
+        "name": "La Guajira",
+        "map": "la-guajira"
+    },
+    {
+        "code": "47",
+        "name": "Magdalena",
+        "map": "magdalena"
+    },
+    {
+        "code": "50",
+        "name": "Meta",
+        "map": "meta"
+    },
+    {
+        "code": "52",
+        "name": "Nariño",
+        "map": "narino"
+    },
+    {
+        "code": "54",
+        "name": "Norte de Santander",
+        "map": "norte-de-santander"
+    },
+    {
+        "code": "63",
+        "name": "Quindío",
+        "map": "quindio"
+    },
+    {
+        "code": "66",
+        "name": "Risaralda",
+        "map": "risaralda"
+    },
+    {
+        "code": "68",
+        "name": "Santander",
+        "map": "santander"
+    },
+    {
+        "code": "70",
+        "name": "Sucre",
+        "map": "sucre"
+    },
+    {
+        "code": "73",
+        "name": "Tolima",
+        "map": "tolima"
+    },
+    {
+        "code": "76",
+        "name": "Valle del Cauca",
+        "map": "valle-del-cauca"
+    },
+    {
+        "code": "81",
+        "name": "Arauca",
+        "map": "arauca"
+    },
+    {
+        "code": "85",
+        "name": "Casanare",
+        "map": "casanare"
+    },
+    {
+        "code": "86",
+        "name": "Putumayo",
+        "map": "putumayo"
+    },
+    {
+        "code": "88",
+        "name": "Archipiélago de San Andrés",
+        "map": "san-andres-y-providencia"
+    },
+    {
+        "code": "91",
+        "name": "Amazonas",
+        "map": "amazonas"
+    },
+    {
+        "code": "94",
+        "name": "Guainía",
+        "map": "guainia"
+    },
+    {
+        "code": "95",
+        "name": "Guaviare",
+        "map": "guaviar"
+    },
+    {
+        "code": "97",
+        "name": "Vaupés",
+        "map": "vaupes"
+    },
+    {
+        "code": "99",
+        "name": "Vichada",
+        "map": "vichada"
+    }
+]

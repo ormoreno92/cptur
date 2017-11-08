@@ -1,0 +1,35 @@
+<div class="home-principal-banner">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0,pirineoLink:image.link!=null}" (click)="RedirectToExternal(image.link)">
+                <img src="{{image.url}}" alt="{{image.title}}">
+            </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="row-fluid">
+            <div class="col-md-5 col-md-offset-7" id="video" *ngIf="video?.url">
+                <span class="close" href='javascript:void(0);' (click)="hideVideo()">X</span>
+                <div class="container-fluid" id="videoContainer">
+                    <div id="streaming" class='contenido'>
+                        <iframe *ngIf="checkYoutube(video.url)" width="100%" height="250px" [src]="getVideoUrl(video.url)" frameborder="0" allowfullscreen
+                            scrolling="no"></iframe>
+                        <iframe *ngIf="!checkYoutube(video.url)" width="100%" height="250px" [src]="checkHttp(video.url)" frameborder="0" allowfullscreen
+                            scrolling="no"></iframe>
+                    </div>
+                    <div id="tittlestreaming">
+                        {{video.title}}
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

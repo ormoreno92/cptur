@@ -1,0 +1,136 @@
+.carousel-control {
+    width: 4%;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    margin-left: 15px;
+    background-image: none;
+}
+
+.library-st {
+    min-height: 13pc;
+    padding: 0.1pc;
+    /*border: 1px solid #808080;*/
+    margin-bottom: 1pc;
+}
+
+.inner-library-results .alert {
+    margin-top: 7pc;
+    display: block;
+}
+
+.inner-library-a {
+    padding: 1pc;
+    border: 1px solid #888888;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: 3px 3px 5px #888888;
+    margin-top: 1pc;
+}
+
+span.libDate {
+    text-align: right;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    color: #00adee;
+    font-weight: bold;
+}
+
+h4.libTitle {
+    text-align: left;
+    display: block;
+    color: #0066b2;
+    font-weight: bold;
+}
+
+p.libdesc {
+    display: block;
+    width: 100%;
+    color: black;
+    text-align: justify;
+}
+
+.btn-rr {
+    float: right;
+}
+
+.lefty-img {
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 1pc;
+    max-height: 6pc;
+    max-width: 6pc;
+}
+
+@media (max-width: 767px) {
+    .carousel-inner .active.left {
+        left: -100%;
+    }
+    .carousel-inner .next {
+        left: 100%;
+    }
+    .carousel-inner .prev {
+        left: -100%;
+    }
+    .active>div {
+        display: none;
+    }
+    .active>div:first-child {
+        display: block;
+    }
+    .carousel-control {
+        width: 40%;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 992px) {
+    .carousel-inner .active.left {
+        left: -50%;
+    }
+    .carousel-inner .next {
+        left: 50%;
+    }
+    .carousel-inner .prev {
+        left: -50%;
+    }
+    .active>div {
+        display: none;
+    }
+    .active>div:first-child {
+        display: block;
+    }
+    .active>div:first-child+div {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) {
+    .carousel-inner .active.left {
+        left: -16.7%;
+    }
+    .carousel-inner .next {
+        left: 16.7%;
+    }
+    .carousel-inner .prev {
+        left: -16.7%;
+    }
+}
+
+.img-responsive,
+.thumbnail>img,
+.thumbnail a>img,
+.carousel-inner>.item>img,
+.carousel-inner>.item>a>img {
+    margin: 0 auto;
+}
+
+.magazine-carousel {
+    background: #E5E4E5;
+    height: 16pc;
+    padding-top: 2pc;
+    padding-bottom: 2pc;
+    margin-bottom: 5pc;
+}

@@ -1,0 +1,144 @@
+<div class="row header-inner-sections about-img">
+  <div class="title-inner-section">
+    <img src="./assets/img/sources.png" alt="Quienes Somos">
+    <span>QUIÉNES SOMOS</span>
+  </div>
+</div>
+<div class="row yellow-bar"></div>
+<div class="container">
+  <div class="row about-gen-section">
+    <div class="col-md-3 righty-side">
+      <div class="row">
+        <ul class="nav nav-pills nav-stacked lefty-menu">
+          <li class="active">
+            <a data-toggle="pill" href="#sec1">MISIÓN</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec2">VISIÓN</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec3">HISTORIA</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec4">FUNCIONARIOS</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec5">ORGANIGRAMA</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec6">DOCUMENTOS</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9 about-section">
+      <div class="row">
+        <div class="tab-content">
+          <div id="sec1" class="tab-pane active inner-pane-props">
+            <h2>MISIÓN</h2>
+            <img src="./assets/img/mision.jpg">
+            <p>
+              La Asociación Hotelera y Turística de Colombia – COTELCO es un gremio federado con amplia trayectoria, reconocimiento y presencia
+              nacional que representa y apoya los intereses del sector hotelero y turístico colombiano fortaleciendo su competitividad
+              y productividad mediante la prestación de servicios que permitan dar respuesta a las necesidades de nuestros
+              afiliados y del turismo en general. COTELCO cuenta con un equipo de colaboradores altamente calificado que
+              trabaja con ética, disciplina y respeto que le permite a la Asociación tener un compromiso indeclinable con
+              la sociedad, el medio ambiente, la economía y el desarrollo tecnológico.</p>
+          </div>
+          <div id="sec2" class="tab-pane inner-pane-props">
+            <h2>VISIÓN</h2>
+            <p>Para el año 2017 la Asociación Hotelera y Turística de Colombia – COTELCO, seguirá siendo el gremio hotelero
+              y turístico más representativo del país, reconocido por haber desarrollado estrategias efectivas que habrán
+              fortalecido la competitividad e internacionalización de la industria turística y por su liderazgo en el análisis
+              sectorial e incidencia en políticas públicas que contribuyan al posicionamiento del turismo como una de las
+              industrias más importantes de la economía nacional.</p>
+            <img src="./assets/img/vision.jpg">
+          </div>
+          <div id="sec3" class="tab-pane inner-pane-props">
+            <h2>HISTORIA</h2>
+            <img src="./assets/img/resena.jpg">      
+          </div>
+          <div id="sec4" class="tab-pane inner-pane-props custom-functions-template">
+            <h2>FUNCIONARIOS</h2>
+            <div class="col-md-12 hotel-block" *ngFor="let affiliate of funcs" style="cursor:pointer;">
+              <div class="row-fluid inner-h-p">
+                <div class="col-md-3 inner-h">
+                  <img class="inner-results-hotel-image" src="{{affiliate.photo}}" alt="{{affiliate.names}}">
+                </div>
+                <div class="col-md-9">
+                  <h3 class="inner-results-hotel-name">{{affiliate.names}} {{affiliate.lastNames}}</h3>
+                  <span class="charge-func">{{affiliate.chargeName}}</span>
+                  <p class="inner-results-hotel-desc">
+                    {{htmlToPlaintext(affiliate.profile,3000)}}
+                  </p>
+                </div>
+              </div>
+              <div class="row-fluid row-inner-h-r-2">
+                <div class="col-md-9 col-md-offset-3 inner-h-d">
+                  <div class="row-fluid inner-h-d-i">
+                    <div class="col-md-6" style="padding: 0;">
+                      <i class="glyphicon glyphicon-earphone"></i>
+                      <span>{{affiliate.phone | customAppPipes:160}}</span>
+                    </div>
+                    <div class="col-md-6" style="padding: 0;">
+                      <i class="glyphicon glyphicon-envelope"></i>
+                      <span>{{affiliate.user | customAppPipes:180}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="sec5" class="tab-pane inner-pane-props">
+            <h2>ORGANIGRAMA</h2>  
+            <img src="./assets/img/organigrama.jpg">          
+          </div>
+          <div id="sec6" class="tab-pane inner-pane-props">
+            <h2>DOCUMENTOS INSTITUCIONALES</h2>
+            <div class="col-md-12 inner-library-a" *ngFor="let doc of docs | paginate: { itemsPerPage: 5, currentPage: p }" style="cursor:pointer;">
+              <div class="col-md-2">
+                <img src="./assets/img/sala_prensa_black.png" alt="Documento" class="lefty-img">
+              </div>
+              <div class="col-md-10">
+                <span class="libDate">{{doc.publicationDate}}</span>
+                <h4 class="libTitle">{{doc.name}}</h4>
+                <p class="libdesc">
+                  {{htmlToPlaintext(doc.summary,3000)}}
+                </p>
+                <span class="btn btn-danger btn-rr" (click)="downloadDocument(doc.url, doc.reqAuth)">DESCARGAR</span>
+              </div>
+            </div>
+            <div class="has-text-centered col-md-12">
+              <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+                screenReaderCurrentLabel=" "></pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 lefty-side">
+      <div class="row">
+        <ul class="nav nav-pills nav-stacked lefty-menu">
+          <li class="active">
+            <a data-toggle="pill" href="#sec1">MISIÓN</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec2">VISIÓN</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec3">HISTORIA</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec4">FUNCIONARIOS</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec5">ORGANIGRAMA</a>
+          </li>
+          <li>
+            <a data-toggle="pill" href="#sec6">DOCUMENTOS</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

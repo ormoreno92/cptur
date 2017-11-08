@@ -1,0 +1,91 @@
+<div class="row header-inner-sections press-img">
+  <div class="title-inner-section">
+    <img src="./assets/img/sala_prensa.png" alt="Sala de Prensa">
+    <span>SALA DE PRENSA</span>
+  </div>
+</div>
+<div class="row yellow-bar"></div>
+<div class="container-fluid gray-blocked">
+  <div class="row-fluid">
+    <div class="col-md-11">
+      <div class="row-fluid">
+        <div class="col-md-3 z-ini">
+          <div class="row">
+            <span class="title-news">ÚLTIMAS NOTICIAS</span>
+          </div>
+          <div class="row-fluid">
+            <div class="col-md-10">
+              <div class="row-inner-press" *ngFor="let new of lastNews" (click)="redirectToSpecificReplacement(new.id)">
+                <h4 class="mini-press-title">{{new.title}}</h4>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <span class="btn btn-default btn-plus" (click)="redirectToHistory()">HISTORIAL</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9 press-new-flot">
+          <div class="row-fluid" style="height: 100%;">
+            <div class="col-md-8 big-press">
+              <div class="row-fluid" style="height: 100%;">
+                <div class="col-md-4 img-press-outer">
+                  <img src="{{lastNew.url}}" alt="{{lastNew.title}}">
+                </div>
+                <div class="col-md-8 txtG-press-outer">
+                  <h4 class="big-press-title">{{lastNew.title}}</h4>
+                  <div class="row txt-press-outer">
+                    <p id="txtttt">{{htmlToPlaintext(lastNew.description,700)}}</p>
+                  </div>
+                  <div class="row bt-press-outer">
+                    <span class="btn btn-danger" (click)="redirectToSpecific(lastNew.id)">VER MÁS +</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 funny-btns">
+              <ul class="nav nav-pills nav-stacked lefty-menu">
+                <li class="">
+                  <a data-toggle="pill" href="javascript:void(0)" (click)="redirectToLast('PRESIDENCY')">CARTA DE PRESIDENTE</a>
+                </li>
+                <li>
+                  <a data-toggle="pill" href="javascript:void(0)" (click)="redirectToLast('CIRCULAR')">BOLETINES</a>
+                </li>
+                <li>
+                  <a data-toggle="pill" href="javascript:void(0)" (click)="redirectToLast('BULLETIN')">CIRCULARES</a>
+                </li>
+                <li>
+                  <a data-toggle="pill" href="javascript:void(0)" (click)="redirectToLast('RELEASE')">INDICADORES HOTELEROS</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row-fluid white-back">
+    <h3 class="title-home">
+      INFÓRMESE DE LAS NOTICIAS DE NUESTROS ALIADOS
+    </h3>
+    <hr class="hr-home">
+    <br />
+    <div class="row-fluid">
+      <div class="col-md-5 mini-whole-press">
+        <h5 class="mini-title-press">
+          NOTICIAS NACIONALES
+        </h5>
+        <img *ngFor="let allie of alliesN" src="{{allie.logo}}" alt="{{allie.name}}" class="imagensita-press" (click)="OpenOtherNews(allie.webSite)"
+        />
+      </div>
+      <div class="col-md-5 mini-whole-press">
+        <h5 class="mini-title-press">
+          NOTICIAS INTERNACIONALES
+        </h5>
+        <img *ngFor="let allie of alliesI" src="{{allie.logo}}" alt="{{allie.name}}" class="imagensita-press" (click)="OpenOtherNews(allie.webSite)"
+        />
+      </div>
+    </div>
+  </div>
+</div>

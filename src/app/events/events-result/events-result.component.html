@@ -1,0 +1,79 @@
+<div class="row header-inner-sections capacitaciones-img">
+  <div class="title-inner-section">
+    <span>EVENTOS</span>
+  </div>
+</div>
+<div class="row-fluid yellow-container">
+  <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-2">
+    <div class="row-fluid">
+      <form #values="ngForm" (ngSubmit)="searchEvents(values)">
+        <div class="col-md-12">
+          <div class="col-md-3">
+            <div class="form-group">
+              <select class="form-control" name="dpt" (change)="onChangeDepartment($event.target.value)" ngModel>
+                <option value="" disabled>Departamento</option>
+                <option *ngFor="let dpt of departments; let i=index" value="{{dpt.code}}">{{dpt.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <select class="form-control" name="ct" ngModel>
+                <option value="" disabled>Ciudad</option>
+                <option *ngFor="let city of cities; let i=index" value="{{city.code}}">{{city.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control inner-form-control inner-search-txt" id="search" placeholder="Palabra Clave" name="kw"
+                ngModel />
+              <button type="submit" class="btn-lookup inner-form-control inner-search-btn"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h3 class="title-home">
+    RESULTADOS
+  </h3>
+  <hr class="hr-home">
+  <div class="row" *ngIf="events?.length > 0; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="col-md-3 hotel-block" *ngFor="let affiliate of events | paginate: { itemsPerPage: 6, currentPage: p }" style="cursor:pointer;"
+      (click)="goToEvent(affiliate.id)">
+      <div class="row-fluid inner-h-p">
+        <div class="col-md-12 inner-h">
+          <img *ngIf="isNullOrEmpty(affiliate.advertisingPiece);else other_content" class="inner-results-hotel-image" src="./assets/img/genericHotel.png"
+            alt="{{affiliate.tradename}}">
+          <ng-template #other_content>
+            <img class="inner-results-hotel-image" src="{{affiliate.advertisingPiece}}" alt="{{affiliate.name}}">
+          </ng-template>
+          <hr class="inner-event-hr" />
+        </div>
+        <div class="col-md-12">
+          <span class="inner-date">{{affiliate.startDate}}</span>
+          <h3 class="inner-results-hotel-name">{{affiliate.name | customAppPipes:250}}</h3>
+          <p class="inner-results-hotel-desc">
+            {{htmlToPlaintext(affiliate.description,210)}}
+          </p>
+        </div>
+        <div class="col-md-12">
+          <span class="btn btn-alert pull-right inner-events-r-btn">VER MÁS</span>
+        </div>
+      </div>
+    </div>
+    <div class="has-text-centered col-md-12 paginator-ator">
+      <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+        screenReaderCurrentLabel=" "></pagination-controls>
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div class="alert alert-warning">
+      <strong>Atención!</strong> No hay resultados para la búsqueda realizada.
+    </div>
+  </ng-template>
+</div>

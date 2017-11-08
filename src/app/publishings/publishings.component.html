@@ -1,0 +1,104 @@
+<div class="row header-inner-sections publicaciones-img">
+  <div class="title-inner-section">
+    <img src="./assets/img/sala_prensa.png" alt="Publicaciones">
+    <span>PUBLICACIONES</span>
+  </div>
+</div>
+<div class="row yellow-bar"></div>
+<div class="container-fluid">
+  <h3 class="title-home">
+    REVISTAS
+  </h3>
+  <hr class="hr-home">
+  <br />
+  <div class="row magazine-carousel">
+    <div class="col-md-12">
+      <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+        <div class="carousel-inner">
+          <div *ngFor="let image of images; let i=index" class="item" [ngClass]="{active:i==0}">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <a href="{{image.link}}" target="_blank">
+                <img src="{{image.url}}" class="img-responsive" alt="{{image.title}}">
+              </a>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
+    </div>
+  </div>
+  <h3 class="title-home">
+    BIBLIOTECA
+  </h3>
+  <hr class="hr-home">
+  <br />
+  <div class="col-md-12 library-st">
+    <div class="row-fluid blue-container">
+      <div class="col-md-12 col-sm-10 col-xs-12">
+        <div class="row-fluid">
+          <form #values="ngForm" (ngSubmit)="searchLibrary(values)">
+            <div class="col-md-12">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" name="cat" ngModel>
+                <option value="" >Categoría</option>
+                <option *ngFor="let cat of categories; let i=index" value="{{cat.id}}" >{{cat.name}}</option>
+              </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" name="scat" ngModel>
+                <option value="" >Subcategoría</option>
+                <option *ngFor="let cat of sCategories; let i=index" value="{{cat.id}}" >{{cat.name}}</option>
+              </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" name="theme" ngModel>
+                <option value="" >Tema</option>                
+                <option *ngFor="let cat of themes; let i=index" value="{{cat.id}}" >{{cat.name}}</option>
+              </select>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="text" class="form-control inner-form-control inner-search-txt" id="search" placeholder="Palabra Clave" name="kw"
+                    ngModel />
+                  <button type="submit" class="btn-lookup inner-form-control inner-search-btn"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid inner-library-results">
+      <div class="row" *ngIf="library?.length > 0; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <div class="col-md-12 inner-library-a" *ngFor="let lib of library | paginate: { itemsPerPage: 5, currentPage: p }" style="cursor:pointer;">
+          <div class="col-md-2">
+            <img src="{{lib.image}}" alt="Documento" class="lefty-img">
+          </div>
+          <div class="col-md-10">
+            <span class="libDate">{{lib.publicationDate}}</span>
+            <h4 class="libTitle">{{lib.name}}</h4>
+            <p class="libdesc">{{lib.summary}}</p>
+            <span class="btn btn-danger btn-rr" (click)="DownloadDocument(lib.url, lib.reqAuth)">DESCARGAR</span>
+          </div>
+        </div>
+        <div class="has-text-centered col-md-12">
+          <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+            screenReaderCurrentLabel=" "></pagination-controls>
+        </div>
+      </ng-template>
+      <ng-template #elseBlock>
+        <div class="alert alert-warning">
+          <strong>Atención!</strong> {{innerMessage}}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="container-fluid our-affiliates-home">
+  <h3 class="title-home">
+    NUESTROS AFILIADOS
+  </h3>
+  <hr class="hr-home">
+  <div class="row-fluid">
+    <div class="col-md-2 col-md-offset-1 form-allies form-allies2">
+      <div class="row">
+        <h5 class="title-home-forms">
+          RESERVAS DE HOTELES
+        </h5>
+        <hr class="hr-home-forms">
+      </div>
+      <div class="row">
+        <form>
+          <div class="col-md-12">
+            <div class="form-group blue lefty">
+              <div class="input-group">
+                <input class="form-control" placeholder="Fecha" name="dp" />
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar blue"></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="search" placeholder="Buscar" />
+            </div>
+          </div>
+          <input type="submit" class="btn btn-primary center-block btn-80 bolder-btn" value="RESERVAR" />
+        </form>
+      </div>
+    </div>
+    <div class="col-md-7 home-hotels-banne" style="max-width: 859px;">
+      <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}">
+            <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.photo+ ')','width':'100%','height':'100%','margin-bottom':'-1px','max-width':'862px','max-height':'312px'}"
+              (click)="goToHotel(image.id)"> </div>
+            <div class="carousel-caption">
+              <h1>{{image.tradename}} - {{image.city.name}}</h1>
+            </div>
+            <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 form-allies">
+      <div class="row">
+        <h5 class="title-home-forms">
+          BUSCADOR DE HOTELES
+        </h5>
+        <hr class="hr-home-forms">
+      </div>
+      <div class="row">
+        <form #values="ngForm" (ngSubmit)="searchHotels(values)">
+          <div class="col-md-12">
+            <div class="form-group">
+              <select class="form-control" name="dpt" (change)="onChangeDepartment($event.target.value)" ngModel>
+                <option value="" disabled>Departamento</option>
+                <option *ngFor="let dpt of departments; let i=index" value="{{dpt.code}}">{{dpt.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="form-control" name="ct" ngModel>
+                <option value="" disabled>Ciudad</option>
+                <option *ngFor="let city of cities; let i=index" value="{{city.code}}">{{city.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="search" placeholder="Palabra Clave" name="kw" ngModel />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary center-block btn-80 bolder-btn">BUSCAR</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

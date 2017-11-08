@@ -1,0 +1,93 @@
+<div class="row header-inner-sections affiliate-img">
+  <div class="title-inner-section">
+    <span>BUSCAR HOTELES</span>
+  </div>
+</div>
+<div class="row-fluid yellow-container">
+  <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-2">
+    <div class="row-fluid">
+      <form #values="ngForm" (ngSubmit)="searchHotels(values)">
+        <div class="col-md-12">
+          <div class="col-md-3">
+            <div class="form-group">
+              <select class="form-control" name="dpt" (change)="onChangeDepartment($event.target.value)" ngModel>
+                <option value="" disabled>Departamento</option>
+                <option *ngFor="let dpt of departments; let i=index" value="{{dpt.code}}">{{dpt.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <select class="form-control" name="ct" ngModel>
+                <option value="" disabled>Ciudad</option>
+                <option *ngFor="let city of cities; let i=index" value="{{city.code}}">{{city.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control inner-form-control inner-search-txt" id="search" placeholder="Palabra Clave" name="kw"
+                ngModel />
+              <button type="submit" class="btn-lookup inner-form-control inner-search-btn"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <h3 class="title-home">
+    RESULTADOS
+  </h3>
+  <hr class="hr-home">
+  <div class="row" *ngIf="affiliates?.length > 0; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="col-md-5 hotel-block" *ngFor="let affiliate of affiliates | paginate: { itemsPerPage: 8, currentPage: p }" style="cursor:pointer;"
+      (click)="goToHotel(affiliate.id)">
+      <div class="row-fluid inner-h-p">
+        <div class="col-md-3 inner-h">
+          <img *ngIf="isNullOrEmpty(affiliate.photo);else other_content" class="inner-results-hotel-image" src="./assets/img/genericHotel.png"
+            alt="{{affiliate.tradename}}">
+          <ng-template #other_content>
+            <img class="inner-results-hotel-image" src="{{affiliate.photo}}" alt="{{affiliate.tradename}}">
+          </ng-template>
+        </div>
+        <div class="col-md-9">
+          <h3 class="inner-results-hotel-name">{{affiliate.tradename | customAppPipes:25}}</h3>
+          <!--<p class="inner-results-hotel-desc" [innerHTML]="affiliate.description">            
+          </p>-->
+          <p class="inner-results-hotel-desc">
+            {{htmlToPlaintext(affiliate.description,210)}}
+          </p>
+        </div>
+      </div>
+      <div class="row-fluid row-inner-h-r-2">
+        <div class="col-md-11 inner-h-d">
+          <div class="row-fluid inner-h-d-i">
+            <div class="col-md-4" style="padding: 0;">
+              <i class="glyphicon glyphicon-earphone"></i>
+              <span>{{affiliate.phone | customAppPipes:20}}</span>
+            </div>
+            <div class="col-md-8" style="padding: 0;">
+              <i class="glyphicon glyphicon-envelope"></i>
+              <span>{{affiliate.emailReservation | customAppPipes:50}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="rnt-floating">
+          RNT: {{affiliate.rnt}}
+        </div>
+      </div>
+    </div>
+    <div class="has-text-centered col-md-12">
+      <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+        screenReaderCurrentLabel=" "></pagination-controls>
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div class="alert alert-warning">
+      <strong>Atención!</strong> No hay resultados para la búsqueda realizada.
+    </div>
+  </ng-template>
+</div>

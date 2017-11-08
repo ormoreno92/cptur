@@ -1,0 +1,9 @@
+{
+    "version": "0.1.0",
+    "command": "lessc",
+    "isShellCommand": true,
+    "args": [
+        "src/assets/css/styles.less", "src/assets/css/styles.css"
+        //"src/app/home/carousel2/carousel2.component.less", "src/app/home/carousel2/carousel2.component.css"
+    ]
+}

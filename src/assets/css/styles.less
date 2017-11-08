@@ -1,0 +1,743 @@
+@import "../../../node_modules/bootstrap/less/bootstrap.less";
+
+/*Nerd Colombia Custom Styles*/
+
+@body-bg: #ffffff;
+@brand-primary: #0091b2;
+@brand-blue: #005c82;
+@brand-success: #F9B42B;
+@brand-info: #0091b2;
+@brand-warning: #4bb649;
+@brand-danger: #d9534f;
+@navbar-default-link-hover-bg: #4bb649;
+@navbar-default-bg: #007197;
+@navbar-default-border: transparent;
+@text-color: #000000;
+@link-color: @brand-primary;
+@link-hover-color: lighten(@link-color, 15%);
+@btn-default-color: White;
+@btn-primary-color: White;
+@btn-default-bg: @brand-warning;
+@btn-primary-bg: @brand-warning;
+@btn-alert: @navbar-default-link-hover-bg;
+@brand-danger: @navbar-default-link-hover-bg;
+@navbar-default-color: @brand-primary;
+@navbar-default-link-color: white;
+@navbar-default-link-hover-color: lighten(@navbar-default-link-color, 15%);
+@navbar-default-color: @brand-warning;
+@default-animation-speed: 500ms;
+@nav-pills-border-radius: 0;
+body {
+    overflow-x: hidden;
+}
+
+a {
+    color: @navbar-default-link-hover-bg;
+    text-decoration: none;
+    &:hover {
+        color: @link-hover-color;
+        text-decoration: none;
+    }
+}
+
+@font-family-lato: "Lato",
+Helvetica,
+Arial,
+sans-serif;
+@font-family-open-sans :"Open Sans";
+@font-family-base: @font-family-lato;
+@icon-font-path: "../fonts/";
+@icon-font-name: "glyphicons-halflings-regular";
+img.centered {
+    max-width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0px 0px -50px;
+}
+
+.lato,
+h1,
+h4,
+h5 {
+    font-family: @font-family-base;
+}
+
+@navbar-height: 5pc;
+body {
+    padding-top: 6pc;
+}
+
+.blue-text {
+    font-family: @font-family-base;
+    font-size: 0.8em;
+    font-weight: lighter;
+    color: @brand-blue;
+}
+
+.inner-menu-upper {
+    height: 5pc;
+    background: transparent;
+}
+
+.inner-menu-upper-prop {
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 1em;
+    white-space: nowrap;
+}
+
+.navbar-nav>li:first-child {
+    border-left: 0 !important;
+}
+
+.navbar-nav>li:last-child {
+    border-right: 0 !important;
+}
+
+#myNavbar {
+    width: 100%;
+}
+
+#myNavbar .navbar-nav {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    background: #005c82;
+    height: 3pc;
+    margin-top: 2%;
+}
+
+.upper-phone {
+    width: 1.5pc;
+}
+
+.bar {
+    vertical-align: middle;
+    width: 1px;
+    display: inline-block;
+    height: 75%;
+    background: grey;
+}
+
+.upper-button {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.logo-menu {
+    max-width: 15pc;
+    margin-top: 25%;
+}
+
+.logo-header {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 16pc;
+    margin-top: 2%;
+}
+
+.navbar-nav li a {
+    color: @brand-blue;
+    font-weight: bold;
+    font-family: @font-family-base;
+}
+
+.pse-button {
+    padding: 0;
+    margin-top: 1pc;
+    margin-left: -0.5pc;
+}
+
+.log-in-btn {
+    padding-top: 1.2pc;
+}
+
+.title-footer {
+    font-weight: 700;
+    border-bottom: 1px solid white;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin-bottom: 1pc;
+    text-align: center;
+}
+
+footer {
+    background-color: @brand-blue;
+    color: white;
+    font-size: 0.9em;
+    padding-top: 1pc;
+    text-align: center;
+    >.container-fluid>.row>div>p {
+        margin: 0 !important;
+        font-weight: 500;
+    }
+    >.container-fluid>.custom-row-footer>a {
+        color: white;
+        text-decoration: underline;
+        text-align: center;
+        padding-right: 0.5pc;
+        line-height: 2pc;
+    }
+    >.container-fluid>.custom-row-footer {
+        text-align: center;
+    }
+}
+
+.custom-row-footer {
+    background-color: @brand-info;
+    height: 2pc;
+    margin-top: 2pc;
+}
+
+.twitter,
+.facebook,
+.youtube,
+.instagram {
+    width: 3.5pc;
+    height: 3.5pc;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.twitter {
+    background-color: #53C3EC;
+    background-image: url('../img/twitter.png');
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+
+.facebook {
+    background-color: #0B72B5;
+    background-image: url('../img/facebook.png');
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+
+.youtube {
+    background-color: #C01924;
+    background-image: url('../img/youtube.png');
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+}
+
+.instagram {
+    background-color: #FFFFFF;
+    background-image: url('../img/instagram.png');
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+
+.container-marcas-cotelco {
+    border-top: 1px gray dotted;
+    text-align: center;
+    padding-bottom: 4pc;
+    padding-top: 2pc;
+}
+
+.title-home {
+    color: @brand-blue;
+    text-align: center;
+    font-weight: bold;
+}
+
+.title-inner {
+    color: #184A91;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: -1pc;
+}
+
+.hr-inner {
+    width: 10%;
+    border-top: 1px solid #C6C7C8;
+}
+
+.hr-home {
+    width: 10%;
+    border-top: 2px solid #B1B3B4;
+}
+
+.yellow-bar {
+    height: 0.5pc;
+    background: @brand-info;
+}
+
+.yellow-container {
+    min-height: 5pc;
+    padding-top: 1pc;
+    padding-bottom: 1pc;
+    background: @brand-info;
+    height: auto;
+    float: left;
+    width: 100%;
+}
+
+.blue-container {
+    min-height: 5pc;
+    padding-top: 1pc;
+    padding-bottom: 1pc;
+    background: @brand-blue;
+    height: auto;
+    float: left;
+    width: 100%;
+}
+
+.blue-bar {
+    background: @brand-blue;
+}
+
+.inner-menu-bar {
+    padding-top: 0.5pc;
+    padding-bottom: 0.5pc;
+    cursor: pointer;
+}
+
+.inner-menu-bar>img {
+    width: 100%;
+    max-width: 4pc;
+    display: block;
+    margin: 0 auto;
+}
+
+.inner-menu-bar>span {
+    color: white;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-family: @font-family-lato;
+    padding-top: 0.3pc;
+}
+
+.our-affiliates-home {
+    background: #F3F3F2;
+    padding-bottom: 2pc;
+}
+
+.cotelco-home-img {
+    position: absolute;
+    top: -2.5pc;
+    width: 12pc;
+    display: block;
+    margin: 0 auto;
+}
+
+.title-home-forms {
+    text-align: center;
+    color: @brand-primary;
+    font-weight: bolder;
+}
+
+.hr-home-forms {
+    width: 30%;
+    border-top: 1px solid #B1B3B4;
+}
+
+.form-allies {
+    background: white;
+    height: 18pc;
+    padding-top: 1pc;
+    margin-top: 2pc;
+    width: 16%;
+    box-shadow: 3px 3px 3px 1px #c3c3c3;
+}
+
+.form-allies2 {
+    box-shadow: -3px 3px 3px 1px #c3c3c3;
+}
+
+.lefty {
+    display: inline-block;
+}
+
+.lefty-input {
+    display: inline-block;
+    width: 89%;
+}
+
+.blue {
+    color: @brand-info;
+}
+
+.header-inner-sections {
+    height: 8pc;
+}
+
+.title-inner-section {
+    background: rgba(0, 102, 178, 0.6);
+    width: 60%;
+    margin-top: 2%;
+    position: relative;
+    float: left;
+    color: white;
+    text-align: center;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 2em;
+    height: auto;
+    padding-left: 5pc;
+}
+
+.title-inner-section img {
+    display: inline-block;
+    width: 10%;
+    max-width: 2.5pc;
+    vertical-align: sub;
+}
+
+.title-inner-section span {
+    display: inline-block;
+}
+
+.about-img {
+    background-color: transparent;
+    background-image: url('../img/about.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 40%;
+}
+
+.chapters-img {
+    background-color: transparent;
+    background-image: url('../img/chapters.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 40%;
+}
+
+.about-section {
+    border: 1px solid #a3a3a3;
+    height: auto;
+    min-height: 19pc;
+    box-shadow: 0 2px 4px 0 #a3a3a3;
+}
+
+.allies-img {
+    background-color: transparent;
+    background-image: url('../img/allies.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 40%;
+}
+
+.press-img {
+    background-color: transparent;
+    background-image: url('../img/press.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 40%;
+}
+
+.about-gen-section {
+    padding-top: 3pc;
+    padding-bottom: 3pc;
+}
+
+.training-gen-section {
+    margin-top: 7pc;
+    margin-bottom: 2pc;
+}
+
+.lefty-menu {
+    text-align: center;
+}
+
+.affiliate-img {
+    background-color: transparent;
+    background-image: url('../img/afiliese.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 60%;
+}
+
+.affiliate2-img {
+    background-color: transparent;
+    background-image: url('../img/affiliate.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 60%;
+}
+
+.publicaciones-img {
+    background-color: transparent;
+    background-image: url('../img/publicaciones.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 60%;
+}
+
+.capacitaciones-img {
+    background-color: transparent;
+    background-image: url('../img/capacitacionesBg.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 60%;
+}
+
+.consultorias-img {
+    background-color: transparent;
+    background-image: url('../img/consultoriasBg.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 60%;
+}
+
+.jumbotron {
+    padding-top: 0.5pc;
+    padding-bottom: 0.5pc;
+    padding-left: 0.5pc;
+    padding-right: 0.5pc;
+    margin-bottom: 0.5pc;
+    color: inherit;
+    background-color: #F8F7F7;
+}
+
+.custom-jumbotrom-affiliate,
+.custom-jumbotrom-affiliate>p {
+    color: #184A91;
+    font-size: 1em;
+}
+
+.label-form {
+    color: #88898B;
+}
+
+.mandatory {
+    color: red !important;
+}
+
+select[class^="label-form"] {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #87888A;
+    border-radius: 0;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.btn-alert {
+    background: @btn-alert;
+    color: white;
+}
+
+.full-title {
+    margin-bottom: 2pc !important;
+    margin-top: 3pc !important;
+    text-align: center;
+    border-bottom: 1px solid @brand-primary;
+    display: block;
+    padding-bottom: 0.5pc;
+    width: 98%;
+    margin: 0 auto;
+    color: @brand-primary;
+    font-weight: bolder;
+}
+
+.righty-side {
+    display: none;
+}
+
+.inner-form-control {
+    margin: 0 !important;
+    float: left;
+}
+
+.inner-search-txt {
+    width: 87%;
+}
+
+.inner-search-btn {
+    width: 13%;
+    height: 2.1pc;
+    background: #FFFFFF;
+    border: 1px solid #87888A;
+    border-left: 0;
+    color: #87888A;
+    font-size: 1.5em;
+    text-indent: -1px;
+    line-height: 1px;
+}
+
+.has-text-centered {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.inner-menu-bar img {
+    width: 3pc;
+    height: 3pc;
+}
+
+.inner-menu-bar:nth-child(1) {
+    line-height: 1pc;
+}
+
+.inner-menu-bar:nth-child(1) img {
+    height: 2.5pc;
+}
+
+.inner-menu-bar:nth-child(2) {
+    line-height: 1pc;
+}
+
+.inner-menu-bar:nth-child(2) img {
+    height: 2.5pc;
+    width: 2.5pc !important;
+}
+
+.inner-menu-bar:nth-child(3) {
+    line-height: 1pc;
+}
+
+.inner-menu-bar:nth-child(3) img {
+    height: 2pc;
+    width: 4pc !important;
+    margin-top: 9%;
+}
+
+.inner-menu-bar:nth-child(4) {
+    line-height: 1pc;
+}
+
+.inner-menu-bar:nth-child(4) img {
+    height: 2pc;
+    margin-top: 9%;
+}
+
+.inner-menu-bar:nth-child(5) {
+    line-height: 1pc;
+}
+
+.inner-menu-bar:nth-child(5) img {
+    height: 2.5pc;
+    width: 2.5pc !important;
+}
+
+.inner-menu-bar:nth-child(6) {
+    line-height: 1pc;
+}
+
+.inner-menu-bar:nth-child(6) img {
+    height: 2pc;
+    width: 2pc;
+    margin-top: 9%;
+}
+
+.bolder-btn {
+    font-weight: bolder;
+}
+
+.btn-80 {
+    width: 80%;
+}
+
+.home-principal-banner {
+    margin-top: 3pc;
+}
+
+
+/*Here we gonna define everything that happens when the menu responsive is activated*/
+
+@media (max-width: @grid-float-breakpoint-max) {
+    .just-for-space {
+        display: none !important;
+    }
+    .navbar-collapse {
+        width: 100%;
+    }
+    .navbar-nav {
+        height: auto !important;
+    }
+    .inner-menu-upper-prop {
+        padding-top: 0;
+    }
+    .col-md-offset-1 {
+        margin-left: 0 !important;
+    }
+    .custom-marcas-control {
+        display: block;
+    }
+    .loguito-cot {
+        display: none;
+    }
+    .inner-menu-bar {
+        width: 32%;
+        display: inline-block;
+    }
+    .form-allies {
+        margin-top: 0;
+        width: 100%;
+    }
+    .home-hotels-banne {
+        width: 100% !important;
+    }
+    .title-inner-section {
+        width: 100% !important;
+    }
+    .title-inner-section img {
+        width: 5%;
+    }
+    .lefty-side {
+        display: none;
+    }
+    .righty-side {
+        display: block;
+    }
+    .consulting-menu-parent {
+        height: auto !important;
+    }
+    .hr-home {
+        width: 40%;
+    }
+    .header-inner-sections {
+        height: auto;
+    }
+}
+
+@media (max-width: @screen-xs) {
+    .inner-menu-upper {
+        margin-left: -8%;
+    }
+    footer {
+        >.container-fluid>.custom-row-footer>a {
+            display: block;
+            margin-bottom: 0.5pc;
+        }
+        >.container-fluid>.custom-row-footer {
+            height: auto;
+        }
+    }
+    .container-marcas-cotelco {
+        display: none;
+    }
+    .form-allies2 {
+        display: none;
+    }
+}
+
+@media (min-width: @screen-lg) {
+    .navbar-nav {
+        float: right;
+        padding-right: 3.4pc;
+    }
+    .magic-container {
+        float: right;
+        padding-right: 2pc;
+    }
+}

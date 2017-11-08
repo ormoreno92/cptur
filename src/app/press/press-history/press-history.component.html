@@ -1,0 +1,81 @@
+<div class="row header-inner-sections affiliate-img">
+  <div class="title-inner-section">
+    <span>HISTORIAL DE NOTICIAS</span>
+  </div>
+</div>
+<div class="row-fluid yellow-container">
+  <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-2">
+    <div class="row-fluid">
+      <form #values="ngForm" (ngSubmit)="searchNews(values)">
+        <div class="col-md-12">
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="date" name="" name="date" class="form-control" placeholder="Fecha: DD / MM / AAAA" ngModel>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <select class="form-control" name="type" ngModel>
+                <option value="" >Tipos</option>
+                <option *ngFor="let cat of categories; let i=index" value="{{cat.id}}" >{{cat.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control inner-form-control inner-search-txt" id="search" placeholder="Palabra Clave" name="kw"
+                ngModel />
+              <button type="submit" class="btn-lookup inner-form-control inner-search-btn"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <h3 class="title-home">
+    RESULTADOS
+  </h3>
+  <hr class="hr-home">
+  <div class="row" *ngIf="news?.length > 0; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="col-md-5 hotel-block" *ngFor="let new of news | paginate: { itemsPerPage: 8, currentPage: p }" style="cursor:pointer;"
+      (click)="redirectToSpecific(new.id)">
+      <div class="row-fluid inner-h-p">
+        <div class="col-md-3 inner-h">
+          <img *ngIf="isNullOrEmpty(new.url);else other_content" class="inner-results-hotel-image" src="./assets/img/cotelco_1.png"
+            alt="{{new.tradename}}">
+          <ng-template #other_content>
+            <img class="inner-results-hotel-image" src="{{new.url}}" alt="{{new.title}}">
+          </ng-template>
+        </div>
+        <div class="col-md-9">
+          <h3 class="inner-results-hotel-name">{{new.title}}</h3>
+        </div>
+      </div>
+      <div class="row-fluid row-inner-h-r-2">
+        <div class="col-md-11 inner-h-d">
+          <div class="row-fluid inner-h-d-i">
+            <div class="col-md-4" style="padding: 0;">
+              <i class="glyphicon glyphicon-calendar"></i>
+              <span>{{new.publicationDate}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="rnt-floating">
+          VER MÁS +
+        </div>
+      </div>
+    </div>
+    <div class="has-text-centered col-md-12">
+      <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+        screenReaderCurrentLabel=" "></pagination-controls>
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div class="alert alert-warning">
+      <strong>Atención!</strong> No hay historial registrado.
+    </div>
+  </ng-template>
+</div>

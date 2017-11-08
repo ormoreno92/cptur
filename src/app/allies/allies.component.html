@@ -1,0 +1,104 @@
+<div class="row header-inner-sections allies-img">
+  <div class="title-inner-section">
+    <img src="./assets/img/aliados.png" alt="Quienes Somos">
+    <span>ALIADOS COMERCIALES</span>
+  </div>
+</div>
+<div class="row yellow-bar"></div>
+<div class="row-fluid gray-blocked">
+  <div class="container">
+    <div class="col-md-12 home-hotels-banne">
+      <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let image of images; let i=index" class="item slides" [ngClass]="{active:i==0}" (click)="goToHotel(image.id)">
+            <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <div class="slide-{{i}} slide-n img-iiner-bg-aff" [ngStyle]="{'background-image':'url(' +image.piece+ ')'}"> </div>
+            <div class="carousel-caption">
+              <h1>{{image.name}}</h1>
+            </div>
+            <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h3 class="title-home">
+    ALIADOS
+  </h3>
+  <hr class="hr-home">
+  <br />
+  <div class="col-md-12 allies-gen-section">
+    <div class="col-md-3 righty-side">
+      <div class="row">
+        <ul class="nav nav-pills nav-stacked lefty-menu">
+          <li *ngFor="let alliesCat of alliesCats; let i=index" [ngClass]="{active:i==0}" class="">
+            <a data-toggle="pill" href="#{{alliesCat.id}}">{{alliesCat.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10 allies-section">
+      <div class="row" *ngIf="allies?.length > 0; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <div class="col-md-5 hotel-block" *ngFor="let affiliate of allies | paginate: { itemsPerPage: 6, currentPage: p }" style="cursor:pointer;"
+          (click)="goToAllie(affiliate.webSite)">
+          <div class="row-fluid inner-h-p">
+            <div class="col-md-3 inner-h">
+              <img *ngIf="isNullOrEmpty(affiliate.url);else other_content" class="inner-results-hotel-image" src="./assets/img/genericHotel.png"
+                alt="{{affiliate.tradename}}">
+              <ng-template #other_content>
+                <img class="inner-results-hotel-image" src="{{affiliate.url}}" alt="{{affiliate.name}}">
+              </ng-template>
+            </div>
+            <div class="col-md-9">
+              <h3 class="inner-results-hotel-name">{{affiliate.name | customAppPipes:25}}</h3>
+              <div class="row-fluid new-allie-desc">
+                <div class="col-md-12" style="padding: 0;">
+                  <i class="glyphicon glyphicon-map-marker"></i>
+                  <span>{{affiliate.addressCorrespondence}}</span>
+                </div>
+                <div class="col-md-12" style="padding: 0;">
+                  <i class="glyphicon glyphicon-envelope"></i>
+                  <span>{{affiliate.email}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row-fluid row-inner-h-r-2">
+            <div class="col-md-11 inner-h-d">
+              <div class="row-fluid inner-h-d-i">
+                <div class="col-md-3" style="padding: 0;">
+                  <i class="glyphicon glyphicon-earphone"></i>
+                  <span>{{affiliate.cellPhone}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="rnt-floating">
+              SITIO WEB
+            </div>
+          </div>
+        </div>
+        <div class="has-text-centered col-md-12">
+          <pagination-controls (pageChange)="p = $event" previousLabel=" " nextLabel=" " screenReaderPaginationLabel=" " screenReaderPageLabel=" "
+            screenReaderCurrentLabel=" "></pagination-controls>
+        </div>
+      </ng-template>
+      <ng-template #elseBlock>
+        <div class="alert alert-warning">
+          Te invitamos a que hagas parte de nuestros  aliados estratégicos. Contáctanosal correo <strong>comercial@cotelco.org.</strong>
+        </div>
+      </ng-template>
+    </div>
+    <div class="col-md-2 lefty-side">
+      <div class="row">
+        <ul class="nav nav-pills nav-stacked lefty-menu">
+          <li *ngFor="let alliesCat of alliesCats; let i=index" [ngClass]="{active:i==0}" class="" (click)="changeAllie(alliesCat.id)">
+            <a data-toggle="pill" href="#{{alliesCat.id}}">{{alliesCat.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

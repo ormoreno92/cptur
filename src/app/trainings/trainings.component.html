@@ -1,0 +1,63 @@
+<div class="row header-inner-sections capacitaciones-img">
+  <div class="title-inner-section">
+    <img src="./assets/img/capacitaciones.png" alt="Publicaciones">
+    <span>CAPACITACIONES</span>
+  </div>
+</div>
+<div class="row-fluid yellow-container">
+  <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-2">
+    <div class="row-fluid">
+      <form #values="ngForm">
+        <div class="col-md-12">
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="date" name="" class="form-control" value="" placeholder="Fecha: DD / MM / AAAA">
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" class="form-control inner-form-control inner-search-txt" id="search" placeholder="Palabra Clave" name="kw"
+                ngModel />
+              <button type="submit" class="btn-lookup inner-form-control inner-search-btn"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row training-gen-section">
+    <div class="col-md-9 about-section training-section">
+      <div class="row">
+        <div class="tab-content">
+          <div id="sec1" class="tab-pane active">
+            <div class="col-md-4" *ngFor="let capacitacion of capacitaciones; let i=index">
+              <div class="row-fluid">
+                <div class="inner-training" (click)="RedirectTo(capacitacion.id)">
+                  <img src="{{capacitacion.piece}}" alt="{{capacitacion.name}}">
+                  <span class="trining-date">
+                    {{capacitacion.startDate |  date:'MM/dd/yyyy'}}
+                  </span>
+                  <span class="training-title">{{capacitacion.name}}</span>
+                  <p class="training-description">
+                    {{htmlToPlaintext(capacitacion.summary,100)}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="row">
+        <ul class="nav nav-pills nav-stacked lefty-menu">
+          <li *ngFor="let capitulo of capitulos; let i=index">
+            <a data-toggle="pill" (click)="getByChapter(capitulo.id)">{{capitulo.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

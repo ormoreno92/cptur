@@ -1,0 +1,118 @@
+<div class="row header-inner-sections affiliate-img">
+  <div class="title-inner-section">
+    <span>CONTÁCTENOS</span>
+  </div>
+</div>
+<div class="row yellow-bar"></div>
+<div class="container">
+  <h3 class="title-home">
+    SISTEMA PQRS
+  </h3>
+  <hr class="hr-home">
+  <br />
+  <div class="panel panel-default" style="box-shadow: 1px 5px 9px 2px #c3c3c3;">
+    <div class="panel-heading">Formulario de contacto</div>
+    <div class="panel-body">
+      <div class="jumbotron custom-jumbotrom-affiliate">
+        <p>Por esta opción, usted podrá presentar sus peticiones, quejas, reclamos y sugerencias, por favor diligencie en su
+          totalidad el formulario disponible. Recuerde que su solicitud será atendida en el menor tiempo posible. </p>
+        <p> <span class="bold"> Petición:</span> derecho fundamental que se concede al peticionario de recibir respuesta efectiva
+          e información relacionada con la prestación del servicio por parte de la Asociación.</p>
+        <p><span class="bold">Queja:</span> es la expresión o manifestación que hace el usuario por el malestar o descontento
+          de un servicio ofrecido por Cotelco o por un hotel afiliado a la Asociación.</p>
+        <p><span class="bold">Reclamo:</span> es la manera de exigirle a la Asociación la mejora en la calidad de un servicio,
+          o corregir una situación que impide o atropella el ejercicio de los derechos del usuario.</p>
+        <p><span class="bold">Sugerencia: </span>es un consejo o propuesta presentada por el usuario para el mejoramiento de
+          un proceso de la Asociación, cuyo objeto está relacionado con la prestación y atención del servicio.</p>
+        <p><span class="bold">Soporte SIH:</span> requerimiento que hace el usuario, con el fin de que se le brinde información
+          y orientación relacionada con el Sistema de Información Hotelero – SIH.</p>
+      </div>
+      <form class="affiliate-form" #values="ngForm" (ngSubmit)="SendContact(values)" id="frmSbt">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="subject" class="label-form">Asunto<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="subject" name="subject" required ngModel>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="sbct" class="label-form">Tipo<span class="mandatory">(*)</span></label>
+                  <select id="sbct" class="form-control" required ngModel name="sbct">
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option *ngFor="let type of types; let i=index" value="{{type.id}}">{{type.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="msg" class="label-form">Mensaje<span class="mandatory">(*)</span></label>
+                  <textarea class="form-control" placeholder="Ingrese su mensaje" required id="msg" ngModel name="msg"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h4 class="full-title">
+                Datos de contacto
+              </h4>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="uname" class="label-form">Nombres<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="uname" required ngModel name="uname">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lastnames" class="label-form">Apellidos<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="lastnames" required ngModel name="lastnames">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email" class="label-form">Correo<span class="mandatory">(*)</span></label>
+                  <input type="mail" class="form-control" id="email" required ngModel name="email">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="cellphone" class="label-form">Celular<span class="mandatory">(*)</span></label>
+                  <input type="tel" class="form-control" id="cellphone" required ngModel name="cellphone">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phone" class="label-form">Teléfono</label>
+                  <input type="tel" class="form-control" id="phone" ngModel name="phone">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="charge" class="label-form">Cargo<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="charge" required ngModel name="charge">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="company" class="label-form">Empresa<span class="mandatory">(*)</span></label>
+                  <input type="text" class="form-control" id="company" required ngModel name="company">
+                </div>
+              </div>
+              <div class="row footer-form-afilliate">
+                <div class="col-md-12">
+                  <p>He leído y estoy de acuerdo con la <a href="http://apps.jirka.co/JSih/resources/files/politicaTratamientoDatosCotelco.pdf"
+                      target="_blank">Política de Tratamiento de Datos</a>:</p>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="" id="chkAccept">Acepto</label>
+                  </div>
+                  <input type="submit" class="btn btn-alert" value="Registrar">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
